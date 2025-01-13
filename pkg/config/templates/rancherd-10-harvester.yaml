@@ -159,11 +159,15 @@ resources:
         spec:
           monitorAccount: rancher-monitoring-operator
           monitorNamespace: cattle-monitoring-system
+      replicas: 1
       containers:
         apiserver:
           image:
-            imagePullPolicy: "IfNotPresent"
+            repository: "freezevicente/harvester"
+            imagePullPolicy: "Always"
+            tag: "dev"
           hciMode: true
+          debug: true
       multus:
         enabled: false
       longhorn:
